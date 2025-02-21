@@ -278,7 +278,7 @@ function App() {
             <div>
               <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
               <p className="text-gray-400">Email: info@youthadvocacyafrica.org</p>
-              <p className="text-gray-400">Phone: +123 456 7890</p>
+              <p className="text-gray-400">Phone: +32466292088</p>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
