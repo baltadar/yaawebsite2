@@ -139,7 +139,7 @@ function App() {
       {/* Two-Column About Section */}
       <section className="py-16 bg-blue-50">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Discover Youth Advocacy Africa</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Join Youth Advocacy Africa</h2>
           <div className="md:grid md:grid-cols-2 md:gap-8 space-y-8 md:space-y-0">
             <div>
               <h3 className="text-2xl font-semibold text-blue-800 mb-4">Our Mission</h3>
