@@ -4,7 +4,6 @@ import {
   Globe2,
   Users,
   Building2,
-  CheckCircle,
   Send,
   BookOpen,
   BriefcaseIcon,
@@ -32,17 +31,14 @@ function App() {
     setSubmitError(null);
 
     try {
-      // First, sign up the user
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email: formData.email,
-        password: Math.random().toString(36).slice(-8), // Generate a random password
+        password: Math.random().toString(36).slice(-8),
       });
 
       if (authError) throw authError;
-
       if (!authData.user) throw new Error('No user data returned after signup');
 
-      // Then, insert the application data
       const { error: insertError } = await supabase
         .from('applications')
         .insert([
@@ -59,7 +55,6 @@ function App() {
 
       if (insertError) throw insertError;
 
-      // Reset form
       setFormData({
         fullName: '',
         email: '',
@@ -86,31 +81,35 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
-      <div 
-        className="relative bg-cover bg-center h-[600px]" 
+      <header
+        className="relative bg-cover bg-center h-[600px] flex items-center justify-center"
         style={{
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80")'
+          backgroundImage:
+            'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80")'
         }}
       >
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-4">
-            <h1 className="text-5xl font-bold mb-6">Youth Advocacy Africa</h1>
-            <p className="text-xl mb-8 max-w-2xl">
-              Empowering African students to pursue international education and career opportunities through strategic partnerships.
-            </p>
-            <a href="#apply" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
-              Apply Now
-            </a>
-          </div>
+        <div className="text-center text-white px-4">
+          <h1 className="text-5xl font-bold mb-6">Youth Advocacy Africa</h1>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Empowering African students to pursue international education and career opportunities through strategic partnerships.
+          </p>
+          <a
+            href="#apply"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300"
+          >
+            Apply Now
+          </a>
         </div>
-      </div>
+      </header>
 
-      {/* Features Section */}
-      <div className="py-20 bg-white">
+      {/* Why Choose Us Section */}
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-16">Why Choose Youth Advocacy Africa?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why Choose Youth Advocacy Africa?
+          </h2>
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
               <div className="flex justify-center mb-4">
@@ -135,102 +134,102 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Partners Section */}
-      <div className="py-20 bg-gray-50">
+      {/* Two-Column About Section */}
+      <section className="py-16 bg-blue-50">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-16">Our Partners</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <Building2 className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Universities</h3>
-              <p className="text-gray-600">Partnerships with leading universities in Europe, North America, and Asia</p>
+          <h2 className="text-3xl font-bold text-center mb-12">Discover Youth Advocacy Africa</h2>
+          <div className="md:grid md:grid-cols-2 md:gap-8 space-y-8 md:space-y-0">
+            <div>
+              <h3 className="text-2xl font-semibold text-blue-800 mb-4">Our Mission</h3>
+              <p className="text-gray-700 leading-relaxed mb-8">
+                Empowering African youth with access to global education and work opportunities, 
+                creating a workforce that thrives in the global economy. We match young Africans 
+                with universities, jobs, and skilled migration programs while providing financing, 
+                mentorship, and career pathways. Our reach extends beyond the U.S. to include 
+                Canada, Europe, Australia, and Asia.
+              </p>
+
+              <h3 className="text-2xl font-semibold text-blue-800 mb-4">The Opportunity</h3>
+              <p className="text-gray-700 leading-relaxed">
+                With 200 million African youth aged 15-24—and 2.1 million aspiring to study abroad, 
+                yet only 400,000 enrolling—the demand for skilled African labor is soaring globally. 
+                Industries such as healthcare, technology, engineering, and skilled trades are hungry 
+                for talent. Africa’s university enrollment is growing at 8.6% annually, double the 
+                global average.
+              </p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <BriefcaseIcon className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Companies</h3>
-              <p className="text-gray-600">Connections with multinational corporations for internships and job placements</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <BookOpen className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Government Programs</h3>
-              <p className="text-gray-600">Access to government-sponsored scholarship and exchange programs</p>
+            <div>
+              <h3 className="text-2xl font-semibold text-blue-800 mb-4">The Challenges</h3>
+              <ul className="list-disc list-inside text-gray-700 leading-relaxed mb-8">
+                <li><strong>Financial Barriers:</strong> Limited scholarships and private loans.</li>
+                <li><strong>Lack of Information:</strong> Many students & workers unaware of global opportunities.</li>
+                <li><strong>Work & Career Gaps:</strong> Employers struggle to connect with skilled African talent.</li>
+                <li><strong>Visa & Migration Hurdles:</strong> Complex processes for work-study and skilled migration.</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-blue-800 mb-4">Our Solution</h3>
+              <p className="text-gray-700 leading-relaxed">
+                We offer comprehensive support—from financial assistance (loans and scholarships) 
+                to matching you with top universities and global employers. We provide mentorship, 
+                skills development, and migration guidance to ensure every young African can 
+                confidently pursue their global future.
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* About Section - Integrated Web Copy */}
-      <div className="py-20 bg-blue-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Discover Youth Advocacy Africa</h2>
-          <div className="space-y-10">
-            <section>
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">Our Mission</h3>
-              <p className="text-gray-700">
-                Empowering African youth with access to global education and work opportunities,
-                creating a workforce that thrives in the global economy. We match young Africans with
-                universities, jobs, and skilled migration programs while providing financing, mentorship,
-                and career pathways. Our reach extends beyond the U.S. to include Canada, Europe, Australia, and Asia.
-              </p>
-            </section>
-            <section>
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">The Opportunity</h3>
-              <p className="text-gray-700">
-                With 200 million African youth aged 15-24—and 2.1 million aspiring to study abroad, yet only 400,000 enrolling—the demand for skilled African labor is soaring globally. Industries such as healthcare, technology, engineering, and skilled trades are hungry for talent. Africa’s university enrollment is growing at 8.6% annually, double the global average.
-              </p>
-            </section>
-            <section>
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">The Challenges</h3>
-              <ul className="list-disc list-inside text-gray-700">
-                <li><strong>Financial Barriers:</strong> Limited scholarships and private loan options.</li>
-                <li><strong>Lack of Information:</strong> Many students and workers are unaware of global opportunities.</li>
-                <li><strong>Work & Career Gaps:</strong> Employers struggle to connect with skilled African talent.</li>
-                <li><strong>Visa & Migration Hurdles:</strong> Complex work-study and skilled migration processes.</li>
-              </ul>
-            </section>
-            <section>
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">Our Solution</h3>
-              <p className="text-gray-700">
-                Our platform offers comprehensive support—from financial assistance via loans and scholarships to matching you with top universities and global employers. We provide mentorship, skills development, and migration guidance to ensure every young African can confidently pursue their global future.
-              </p>
-            </section>
-            <section>
+      {/* Additional Info Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 space-y-8">
+          <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
+            <div>
               <h3 className="text-2xl font-semibold text-blue-800 mb-4">Where You Can Go</h3>
-              <p className="text-gray-700">
-                Explore opportunities in the United States (with OPT), Canada (via PGWP and Express Entry), Europe (through Germany’s Blue Card and the UK’s Skilled Worker Visa), Australia & New Zealand (via work-study programs and Global Talent Visas), and Asia (Japan & South Korea’s skilled migration pathways).
+              <p className="text-gray-700 leading-relaxed">
+                Explore opportunities in the United States (with OPT), Canada (PGWP, Express Entry),
+                Europe (Germany’s Blue Card, UK’s Skilled Worker Visa), Australia & New Zealand 
+                (work-study programs, Global Talent Visas), and Asia (Japan & South Korea’s 
+                skilled migration pathways).
               </p>
-            </section>
-            <section>
+            </div>
+            <div className="mt-8 md:mt-0">
               <h3 className="text-2xl font-semibold text-blue-800 mb-4">The Impact</h3>
-              <ul className="list-disc list-inside text-gray-700">
+              <ul className="list-disc list-inside text-gray-700 leading-relaxed">
                 <li><strong>Career Boost:</strong> 90% of students who study abroad secure employment within 6 months.</li>
                 <li><strong>Higher Earnings:</strong> International degrees can increase earning potential by 2-3x.</li>
                 <li><strong>Diverse Talent Pools:</strong> African graduates drive global innovation.</li>
-                <li><strong>Leadership Development:</strong> We’re shaping future business and political leaders with global experience.</li>
+                <li><strong>Leadership Development:</strong> Building future business and political leaders with global experience.</li>
               </ul>
-            </section>
-            <section>
+            </div>
+          </div>
+
+          <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
+            <div className="mt-8 md:mt-0">
               <h3 className="text-2xl font-semibold text-blue-800 mb-4">For Employers & Universities</h3>
-              <p className="text-gray-700">
-                Our partnerships give universities access to motivated, talented students and offer employers a skilled, diverse workforce. This synergy not only enhances academic environments but also fuels economic growth through skilled migration.
+              <p className="text-gray-700 leading-relaxed">
+                Our partnerships give universities access to motivated, talented students and offer
+                employers a skilled, diverse workforce. This synergy not only enhances academic
+                environments but also fuels economic growth through skilled migration.
               </p>
-            </section>
-            <section>
+            </div>
+            <div className="mt-8 md:mt-0">
               <h3 className="text-2xl font-semibold text-blue-800 mb-4">Join Us</h3>
-              <p className="text-gray-700">
-                Africa’s future is global – let’s unlock the potential together. Whether you’re a student, worker, employer, or academic institution, connect with us to explore transformative opportunities.
+              <p className="text-gray-700 leading-relaxed">
+                Africa’s future is global – let’s unlock the potential together. Whether you’re a student, 
+                worker, employer, or academic institution, connect with us to explore transformative 
+                opportunities.
               </p>
-            </section>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Application Form Section */}
-      <div id="apply" className="py-20 bg-white">
+      {/* Application Form */}
+      <section id="apply" className="py-16 bg-blue-50">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-16">Apply Now</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Apply Now</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             {submitError && (
               <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg">
@@ -333,10 +332,10 @@ function App() {
             </button>
           </form>
         </div>
-      </div>
+      </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-12 mt-auto">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
