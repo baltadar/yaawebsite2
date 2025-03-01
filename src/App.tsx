@@ -97,7 +97,9 @@ function App() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white px-4">
             <h1 className="text-5xl font-bold mb-6">Youth Advocacy Africa</h1>
-            <p className="text-xl mb-8 max-w-2xl">Empowering African students to pursue international education and career opportunities through strategic partnerships.</p>
+            <p className="text-xl mb-8 max-w-2xl">
+              Empowering African students to pursue international education and career opportunities through strategic partnerships.
+            </p>
             <a href="#apply" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
               Apply Now
             </a>
@@ -159,7 +161,73 @@ function App() {
         </div>
       </div>
 
-      {/* Application Form */}
+      {/* About Section - Integrated Web Copy */}
+      <div className="py-20 bg-blue-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Discover Youth Advocacy Africa</h2>
+          <div className="space-y-10">
+            <section>
+              <h3 className="text-2xl font-semibold text-blue-800 mb-4">Our Mission</h3>
+              <p className="text-gray-700">
+                Empowering African youth with access to global education and work opportunities,
+                creating a workforce that thrives in the global economy. We match young Africans with
+                universities, jobs, and skilled migration programs while providing financing, mentorship,
+                and career pathways. Our reach extends beyond the U.S. to include Canada, Europe, Australia, and Asia.
+              </p>
+            </section>
+            <section>
+              <h3 className="text-2xl font-semibold text-blue-800 mb-4">The Opportunity</h3>
+              <p className="text-gray-700">
+                With 200 million African youth aged 15-24—and 2.1 million aspiring to study abroad, yet only 400,000 enrolling—the demand for skilled African labor is soaring globally. Industries such as healthcare, technology, engineering, and skilled trades are hungry for talent. Africa’s university enrollment is growing at 8.6% annually, double the global average.
+              </p>
+            </section>
+            <section>
+              <h3 className="text-2xl font-semibold text-blue-800 mb-4">The Challenges</h3>
+              <ul className="list-disc list-inside text-gray-700">
+                <li><strong>Financial Barriers:</strong> Limited scholarships and private loan options.</li>
+                <li><strong>Lack of Information:</strong> Many students and workers are unaware of global opportunities.</li>
+                <li><strong>Work & Career Gaps:</strong> Employers struggle to connect with skilled African talent.</li>
+                <li><strong>Visa & Migration Hurdles:</strong> Complex work-study and skilled migration processes.</li>
+              </ul>
+            </section>
+            <section>
+              <h3 className="text-2xl font-semibold text-blue-800 mb-4">Our Solution</h3>
+              <p className="text-gray-700">
+                Our platform offers comprehensive support—from financial assistance via loans and scholarships to matching you with top universities and global employers. We provide mentorship, skills development, and migration guidance to ensure every young African can confidently pursue their global future.
+              </p>
+            </section>
+            <section>
+              <h3 className="text-2xl font-semibold text-blue-800 mb-4">Where You Can Go</h3>
+              <p className="text-gray-700">
+                Explore opportunities in the United States (with OPT), Canada (via PGWP and Express Entry), Europe (through Germany’s Blue Card and the UK’s Skilled Worker Visa), Australia & New Zealand (via work-study programs and Global Talent Visas), and Asia (Japan & South Korea’s skilled migration pathways).
+              </p>
+            </section>
+            <section>
+              <h3 className="text-2xl font-semibold text-blue-800 mb-4">The Impact</h3>
+              <ul className="list-disc list-inside text-gray-700">
+                <li><strong>Career Boost:</strong> 90% of students who study abroad secure employment within 6 months.</li>
+                <li><strong>Higher Earnings:</strong> International degrees can increase earning potential by 2-3x.</li>
+                <li><strong>Diverse Talent Pools:</strong> African graduates drive global innovation.</li>
+                <li><strong>Leadership Development:</strong> We’re shaping future business and political leaders with global experience.</li>
+              </ul>
+            </section>
+            <section>
+              <h3 className="text-2xl font-semibold text-blue-800 mb-4">For Employers & Universities</h3>
+              <p className="text-gray-700">
+                Our partnerships give universities access to motivated, talented students and offer employers a skilled, diverse workforce. This synergy not only enhances academic environments but also fuels economic growth through skilled migration.
+              </p>
+            </section>
+            <section>
+              <h3 className="text-2xl font-semibold text-blue-800 mb-4">Join Us</h3>
+              <p className="text-gray-700">
+                Africa’s future is global – let’s unlock the potential together. Whether you’re a student, worker, employer, or academic institution, connect with us to explore transformative opportunities.
+              </p>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/* Application Form Section */}
       <div id="apply" className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-16">Apply Now</h2>
@@ -273,7 +341,9 @@ function App() {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <h3 className="text-xl font-semibold mb-4">Youth Advocacy Africa</h3>
-              <p className="text-gray-400">Empowering African youth through global education and career opportunities.</p>
+              <p className="text-gray-400">
+                Empowering African youth through global education and career opportunities.
+              </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
